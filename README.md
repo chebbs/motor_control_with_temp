@@ -5,10 +5,14 @@ This repository contains code for an ESP32 that controls a stepper motor based o
 ******How It Works**
 ****
 Users enter a temperature via a web interface.
+
 The ESP32 receives the temperature value and controls the motor as follows:
-Below 85°C: Motor rotates clockwise ⏩
-85°C – 105°C: Motor rotates counterclockwise ⏪
-Above 105°C: Motor stops 🛑
+
+Below 85°C: Motor rotates clockwise 
+
+85°C – 105°C: Motor rotates counterclockwise 
+
+Above 105°C: Motor stops 
 
 **Web Interface:**
 
