@@ -17,3 +17,7 @@ If the temperature exceeds 105°C, the motor stops.
 
 **Hardware connections**
 ![IMG_20250317_150034 (1)](https://github.com/user-attachments/assets/8ec006bc-73a6-404d-9680-50bafce658d3)
+
+The Motor with driver is connected to the ESP 32 to the pin GPIO 18, GPIO19, GPIO 21, and GPIO 22 and the data is temperature data is simulated.
+
+**Please note:** You can also connect the DHT sensor to naturally collect the data 
