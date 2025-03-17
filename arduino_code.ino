@@ -7,43 +7,45 @@
 
 AccelStepper stepper(AccelStepper::HALF4WIRE, IN1, IN3, IN2, IN4);
 
-float simulatedTemperature = 83.0;   
-unsigned long lastMotorUpdate = 0;   
-unsigned long lastTempUpdate = 0;    
+float manualTemperature = 80.0;  // Default starting temperature
+unsigned long lastMotorUpdate = 0;
 
 void setup() {
     Serial.begin(115200);
-    stepper.setMaxSpeed(1000);  
-    stepper.setAcceleration(100); 
+    stepper.setMaxSpeed(1000);
+    stepper.setAcceleration(100);
+    Serial.println("Arduino Ready - Waiting for temperature input...");
 }
 
 void loop() {
     unsigned long currentTime = millis();
 
-    if (currentTime - lastTempUpdate >= 120000) {                   // Increment temperature by 5°C every 2 minutes (120,000 ms)
-        lastTempUpdate = currentTime;
-        simulatedTemperature += 5.0;
+    
+    if (Serial.available() > 0) {                           // API check
+        String inputString = Serial.readStringUntil('\n');  // Read input until newline
+        inputString.trim();  // Remove extra whitespace
 
-        if (simulatedTemperature > 110.0) {                         // Reset temperature to 80°C if it exceeds 110°C
-            simulatedTemperature = 80.0;
+        if (inputString.length() > 0) {
+            manualTemperature = inputString.toFloat();  // Convert to float
+
+            Serial.print("Received Temperature: ");
+            Serial.println(manualTemperature);
         }
-
-        Serial.print("Temperature increased: ");
-        Serial.println(simulatedTemperature);
     }
 
-    if (currentTime - lastMotorUpdate >= 100) {                     // Update motor behavior every 100ms
+    // Update motor behavior every 100ms
+    if (currentTime - lastMotorUpdate >= 100) {
         lastMotorUpdate = currentTime;
 
-        Serial.print("Simulated Temperature: ");
-        Serial.println(simulatedTemperature);
+        Serial.print("Current Temperature: ");
+        Serial.println(manualTemperature);
 
-        if (simulatedTemperature < 85.0) {
-            rotateMotor(1000);                                      // Rotate clockwise(+1000)
-        } else if (simulatedTemperature < 105.0) {
-            rotateMotor(-1000);                                     // Rotate counter-clockwise (-1000)
+        if (manualTemperature < 85.0) {
+            rotateMotor(1000);  // Rotate clockwise (RIGHT)
+        } else if (manualTemperature < 105.0) {
+            rotateMotor(-1000); // Rotate counter-clockwise (LEFT)
         } else {
-            stopMotor();                                            // Stop motor
+            stopMotor();        // Stop motor
         }
     }
 }
@@ -52,7 +54,7 @@ void rotateMotor(int speed) {
     stepper.setSpeed(speed);
     stepper.runSpeed();
     Serial.print("Motor rotating ");
-    Serial.println(speed > 0 ? "RIGHT (Clockwise)" : "LEFT (Counter)");
+    Serial.println(speed > 0 ? "RIGHT (Clockwise)" : "LEFT (Counter-clockwise)");
 }
 
 void stopMotor() {
