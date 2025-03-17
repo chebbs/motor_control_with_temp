@@ -32,8 +32,7 @@ void loop() {
         }
     }
 
-    // Update motor behavior every 100ms
-    if (currentTime - lastMotorUpdate >= 100) {
+    if (currentTime - lastMotorUpdate >= 100) {                    // Update motor behavior every 100ms
         lastMotorUpdate = currentTime;
 
         Serial.print("Current Temperature: ");
