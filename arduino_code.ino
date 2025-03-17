@@ -7,7 +7,7 @@
 
 AccelStepper stepper(AccelStepper::HALF4WIRE, IN1, IN3, IN2, IN4);
 
-float manualTemperature = 80.0;  // Default starting temperature
+float manualTemperature = 80.0;  
 unsigned long lastMotorUpdate = 0;
 
 void setup() {
