@@ -1,21 +1,21 @@
-**ESP32-Based Temperature-Controlled Motor System
-**
+**ESP32-Based Temperature-Controlled Motor System**
+
 This repository contains code for an ESP32 that controls a stepper motor based on temperature input. The system can use either simulated temperature values or real data from a DHT sensor. A FastAPI web server allows users to manually enter temperature values, and the entire setup can be containerized using Docker.
 
-**How It Works
-**
+******How It Works**
+****
 Users enter a temperature via a web interface.
 The ESP32 receives the temperature value and controls the motor as follows:
 Below 85°C: Motor rotates clockwise ⏩
 85°C – 105°C: Motor rotates counterclockwise ⏪
 Above 105°C: Motor stops 🛑
 
-**Web Interface:
-**
+**Web Interface:**
+
 ![image](https://github.com/user-attachments/assets/fe2209f6-5285-45cd-8aa6-0631b2bdd0c6)
 
 
-**Hardware Setup
+****Hardware Setup**
 **
 The stepper motor is connected to the ESP32 as follows:
 
