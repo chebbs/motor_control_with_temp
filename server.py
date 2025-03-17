@@ -5,22 +5,20 @@ import time
 
 app = FastAPI()
 
-# Define Serial Port
-SERIAL_PORT = "/dev/ttyUSB0"  # Update if different
+SERIAL_PORT = "/dev/ttyUSB0"  # Update if different     // Define Serial Port
+
 BAUD_RATE = 115200
 
-# Try to open serial connection
 try:
-    ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
+    ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)      //Try to open serial connection
     time.sleep(2)  # Wait for Arduino to initialize
     print(f"Connected to {SERIAL_PORT} successfully!")
 except serial.SerialException:
     ser = None
     print(f"Error: Could not open serial port {SERIAL_PORT}")
 
-# Webpage for manual temperature entry
 html_content = """
-<!DOCTYPE html>
+<!DOCTYPE html>                                              //Webpage for manual temperature entry
 <html>
 <head>
     <title>Temperature Control</title>
