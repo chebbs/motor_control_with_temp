@@ -14,7 +14,6 @@ void setup() {
     Serial.begin(115200);
     stepper.setMaxSpeed(1000);
     stepper.setAcceleration(100);
-    Serial.println("Arduino Ready - Waiting for temperature input...");
 }
 
 void loop() {
@@ -23,10 +22,10 @@ void loop() {
     
     if (Serial.available() > 0) {                           // API check
         String inputString = Serial.readStringUntil('\n');  // Read input until newline
-        inputString.trim();  // Remove extra whitespace
+        inputString.trim();  
 
         if (inputString.length() > 0) {
-            manualTemperature = inputString.toFloat();  // Convert to float
+            manualTemperature = inputString.toFloat();  // float coversion
 
             Serial.print("Received Temperature: ");
             Serial.println(manualTemperature);
