@@ -30,12 +30,14 @@ GPIO 21	IN3;
 GPIO 22	IN4;
 
 **Hardware Setup:**
+
 ![image](https://github.com/user-attachments/assets/a6207c3f-392f-4051-bc4c-024d451ee05f)
 
 
-Optional: Connect a DHT sensor for real temperature input.
+Optional: Connect a DHT sensor for real temperature input instead of simulated data or manual user entry data.
 
 **DHT Sensor Setup:**
+
 ![Screenshot from 2025-03-17 23-11-42](https://github.com/user-attachments/assets/e4469bde-c518-4ca1-b281-0471945045d0)
 
 
