@@ -18,14 +18,16 @@ If the temperature is between 85°C and 105°C, the motor rotates counter-clockw
 If the temperature exceeds 105°C, the motor stops.
 
 **Hardware connections**
-![IMG_20250317_150034 (1)](https://github.com/user-attachments/assets/8ec006bc-73a6-404d-9680-50bafce658d3)
+![WhatsApp Image 2025-03-17 at 10 57 50 PM](https://github.com/user-attachments/assets/81788352-3fa4-4c95-97c2-1088fd428071)
+
 
 The Motor with driver is connected to the ESP 32 to the pin GPIO 18, GPIO19, GPIO 21, and GPIO 22 and the data is temperature data is simulated.
 
 **Please note:** You can also connect the DHT sensor to naturally collect the data 
 
 
-![Screenshot from 2025-03-17 22-55-22](https://github.com/user-attachments/assets/b6226332-3f9c-456d-8eb6-9a453520451b)
+**Output from Web based server 
+**![Screenshot from 2025-03-17 22-55-22](https://github.com/user-attachments/assets/b6226332-3f9c-456d-8eb6-9a453520451b)
 
 
 
