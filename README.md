@@ -20,10 +20,14 @@ Above 105°C: Motor stops 🛑
 The stepper motor is connected to the ESP32 as follows:
 
 ESP32 Pin	Motor Driver
-GPIO 18	IN1
-GPIO 19	IN2
-GPIO 21	IN3
-GPIO 22	IN4
+
+GPIO 18	IN1;
+
+GPIO 19	IN2;
+
+GPIO 21	IN3;
+
+GPIO 22	IN4;
 
 **Hardware Setup:**
 ![image](https://github.com/user-attachments/assets/a6207c3f-392f-4051-bc4c-024d451ee05f)
