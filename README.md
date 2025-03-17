@@ -1,36 +1,38 @@
-****Microcontroller Code for Temperature-Based Motor Control**
+**ESP32-Based Temperature-Controlled Motor System
 **
-This repository contains a microcontroller code written for an ESP32 that simulates a temperature-based motor control system. The code uses the AccelStepper library to control a stepper motor based on a simulated temperature value. Below is an explanation of the code and the procedure to set it up.
+This repository contains code for an ESP32 that controls a stepper motor based on temperature input. The system can use either simulated temperature values or real data from a DHT sensor. A FastAPI web server allows users to manually enter temperature values, and the entire setup can be containerized using Docker.
 
-the repository also container server code developed using FastAPI in python and also can be run as a docker container with Dockerfile & docker-compose.yml
+**How It Works
+**
+Users enter a temperature via a web interface.
+The ESP32 receives the temperature value and controls the motor as follows:
+Below 85°C: Motor rotates clockwise ⏩
+85°C – 105°C: Motor rotates counterclockwise ⏪
+Above 105°C: Motor stops 🛑
 
-**Code Overview**
-The code simulates a temperature sensor and controls a stepper motor based on the temperature value. The motor rotates clockwise, counter-clockwise, or stops depending on the simulated temperature range.
-
-**Key Features:**
-Web App: Consists of input field where user gives the input for temperature in degree celsius
-
-**Motor Control:**
-If the temperature is below 85°C, the motor rotates clockwise.
-
-If the temperature is between 85°C and 105°C, the motor rotates counter-clockwise.
-
-If the temperature exceeds 105°C, the motor stops.
-
-**Hardware connections**
-![WhatsApp Image 2025-03-17 at 10 57 50 PM](https://github.com/user-attachments/assets/81788352-3fa4-4c95-97c2-1088fd428071)
+**Web Interface:
+**
+![image](https://github.com/user-attachments/assets/fe2209f6-5285-45cd-8aa6-0631b2bdd0c6)
 
 
-The Motor with driver is connected to the ESP 32 to the pin GPIO 18, GPIO19, GPIO 21, and GPIO 22 and the data is temperature data is simulated.
+**Hardware Setup
+**
+The stepper motor is connected to the ESP32 as follows:
 
-**Please note:** You can also connect the DHT sensor to naturally collect the data 
+ESP32 Pin	Motor Driver
+GPIO 18	IN1
+GPIO 19	IN2
+GPIO 21	IN3
+GPIO 22	IN4
+
+**Hardware Setup:**
+![image](https://github.com/user-attachments/assets/a6207c3f-392f-4051-bc4c-024d451ee05f)
 
 
-**Output from Web based server 
-**![Screenshot from 2025-03-17 22-55-22](https://github.com/user-attachments/assets/b6226332-3f9c-456d-8eb6-9a453520451b)
+Optional: Connect a DHT sensor for real temperature input.
+
+**DHT Sensor Setup:**
+![Screenshot from 2025-03-17 23-11-42](https://github.com/user-attachments/assets/e4469bde-c518-4ca1-b281-0471945045d0)
 
 
 
-
-**Hardware connection with actual DHT Sensor 
-**![IMG_20250317_150034 (1)](https://github.com/user-attachments/assets/8ec006bc-73a6-404d-9680-50bafce658d3)
