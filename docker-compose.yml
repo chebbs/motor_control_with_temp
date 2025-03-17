@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  fastapi-app:
+    build: .
+    ports:
+      - "8000:8000"
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"  # Give container access to Arduino serial port
+    privileged: true  # Allows access to hardware
+    environment:
+      - SERIAL_PORT=/dev/ttyUSB0
+
